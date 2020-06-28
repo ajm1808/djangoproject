@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %} 
+{% block style %} <link rel="stylesheet" href="{% static 'phenomena/style.css' %}"> {% endblock %}
+{% block title %}Phenomena{% endblock %}
+{% block content %}
+
+<h1 id="singleHeading">{{event.name}}</h1>
+<p id="singleParagraph">{{ event.info }}</p>
+
+{% for date in event.date_set.all %}
+<div id="singleDate"><p> Occurance:  {{ date }}</p></div>
+{% endfor %}
+
+{% for location in event.location_set.all %}
+    <div id="single-location">Location: {{ location }}</div>
+{% endfor %}
+{% endblock %}

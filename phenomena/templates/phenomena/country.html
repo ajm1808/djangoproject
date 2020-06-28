@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Phenomena{% endblock %}
+{% block content %}
+{% block style %} <link rel="stylesheet" href="{% static 'phenomena/style.css' %}"> {% endblock %}
+
+<h2 id="country-heading"> The following events happened in this country:</h2>
+<ul id="country-list">
+    {% for event in events %}
+
+    <li><a href="{% url 'single' event.id %}">{{ event.name }}</a></li>
+
+</ul>
+        
+    {% empty %}
+        <li>No events in this country!</li>
+    {% endfor %}
+
+
+    {% endblock %}
